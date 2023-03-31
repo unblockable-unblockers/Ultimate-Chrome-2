@@ -1,6 +1,9 @@
 # The command that runs the program. If the interpreter field is set, it will have priority and this run command will do nothing
 run = "python3 main.py"
 
+# Audio Support
+audio = true
+
 # The primary language of the repl. There can be others, though!
 language = "python3"
 entrypoint = "main.py"
@@ -33,6 +36,7 @@ PYTHONPATH = "${VIRTUAL_ENV}/lib/python3.10/site-packages"
 REPLIT_POETRY_PYPI_REPOSITORY = "https://package-proxy.replit.com/pypi/"
 MPLBACKEND = "TkAgg"
 POETRY_CACHE_DIR = "${HOME}/${REPL_SLUG}/.cache/pypoetry"
+VNC_ENABLE_EXPERIMENTAL_AUDIO = "1"
 
 # Enable unit tests. This is only supported for a few languages.
 [unitTest]
