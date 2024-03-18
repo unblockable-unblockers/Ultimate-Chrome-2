@@ -46,9 +46,9 @@ def load_cookies(driver: Chrome) -> None:
         for key in sorted([key for key in db.keys() if key.isnumeric()],
                           key=lambda key: int(key)):
             cookie: dict = db[key]
-            url = assemble_url(cookie)
-            if urlparse(driver.current_url).hostname != urlparse(url).hostname:
-                driver.get(url)
+            # url = assemble_url(cookie)
+            # if urlparse(driver.current_url).hostname != urlparse(url).hostname:
+            #     driver.get(url)
             driver.add_cookie(dict(cookie))
     except Exception:
         print("fail")
@@ -99,9 +99,7 @@ if __name__ == "__main__":
     driver = Chrome(options=chrome_options)
     ls = LocalStorage(driver)
 
-    if not SINGLE_PAGE:
-        driver.get("https://google.com")
-    else:
+    if SINGLE_PAGE:
         driver.get(SINGLE_PAGE)
 
     if is_cookies():
@@ -113,10 +111,8 @@ if __name__ == "__main__":
         load_localstorage(ls)
 
     if not SINGLE_PAGE:
-        if urlparse(driver.current_url).hostname != "google.com":
-            driver.get("https://google.com")
-        driver.find_element(By.NAME, "q").send_keys("ready")
-
+        driver.get("https://uc-2-landing-regulad.replit.app/")
+    
     print("Done loading! Stop the repl to save cookies.")
 
     try:
