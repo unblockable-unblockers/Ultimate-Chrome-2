@@ -90,6 +90,7 @@ if __name__ == "__main__":
     chrome_options = ChromeOptions()
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument(f'--homepage={LANDING_PAGE}')
 
     # kiosk
     if SINGLE_PAGE:
