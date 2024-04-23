@@ -10,6 +10,7 @@ from localstorage import LocalStorage
 
 # change this to a website like discord.com to enable LocalStorage
 SINGLE_PAGE = ""
+LANDING_PAGE = "https://uulanding.vercel.app/"
 
 
 def is_cookies() -> None:
@@ -111,7 +112,7 @@ if __name__ == "__main__":
         load_localstorage(ls)
 
     if not SINGLE_PAGE:
-        driver.get("https://uc-2-landing-regulad.replit.app/")
+        driver.get(LANDING_PAGE)
     
     print("Done loading! Stop the repl to save cookies.")
 
